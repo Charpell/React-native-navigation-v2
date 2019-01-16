@@ -1,29 +1,14 @@
-import { Navigation } from 'react-native-navigation';
+import {Navigation} from 'react-native-navigation';
+import {registerScreens} from './src/screens';
 
-import Welcome from './screens/Welcome'
-import SignIn from './screens/Signin'
-
-Navigation.registerComponent('Welcome', () => Welcome)
-Navigation.registerComponent('SignIn', () => SignIn)
+registerScreens();
 
 Navigation.events().registerAppLaunchedListener(() => {
   Navigation.setRoot({
     root: {
-      stack: {
-        id: 'AppStack',
-        children: [{
-          component: {
-            name: "Welcome",
-            options: {
-              topBar: {
-                title: {
-                  text: 'Welcome'
-                }
-              }
-            }
-          }
-        }]
+      component: {
+        name: 'Initializing'
       }
-    }
+    },
   });
 });
